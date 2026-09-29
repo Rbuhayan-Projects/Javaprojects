@@ -7,23 +7,26 @@ public class AuthService {
 
     private final UserRepo userRepo;
 
-    public AuthService(UserRepo userRepo){
+    public AuthService(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
-    public User login (String username, String password){
+
+    public User login(String username, String password) {
+
         User user = userRepo.findByUsername(username);
 
-        if (user == null){
-            return null;
+        if (user == null) {
+            throw new RuntimeException("  Invalid username or password.");
         }
 
-        if (!user.isActive()){
-            return null;
+        if (!user.getPassword().equals(password)) {
+            throw new RuntimeException("  Invalid username or password.");
         }
-        if (!password.equals(user.getPassword())){
-            return null;
+
+        if (!"ADMIN".equalsIgnoreCase(user.getRole())) {
+            throw new RuntimeException("  Access denied. Admin account required.");
         }
+
         return user;
     }
-
 }

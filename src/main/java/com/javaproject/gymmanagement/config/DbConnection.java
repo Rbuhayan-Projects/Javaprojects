@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-// Reverse Domain Name
-// Using  a reverse domain it helps avoid name conflict between package from different organization
-// java doesn't enforce this but its widely followed convetion
 public class DbConnection implements ConnectionFactory {
 
     private final String URL = "jdbc:mysql://localhost:3306/gymmanagement";

@@ -1,5 +1,7 @@
 package com.javaproject.gymmanagement.View;
 
+import java.util.Scanner;
+
 public class ConsuleUI {
 
     public static final String RESET = "\033[0m";
@@ -11,9 +13,10 @@ public class ConsuleUI {
     public static final String GRAY = "\033[90m";
     public static final String BG_BLACK = "\033[20m";
 
-    public static  void clearScreen(){
-        System.out.println(BG_BLACK + "\033[H\033[2J");
-        System.out.flush();
+    public static void clearScreen() {
+        for (int i = 0; i < 50; i++) {
+            System.out.println();
+        }
     }
     public static void resetTerminal(){
         System.out.println(RESET);
@@ -35,35 +38,27 @@ public class ConsuleUI {
         System.out.println("                                                                        ");
         System.out.println(RED + "  ================================================================================================================================================");
         System.out.println(RESET + BG_BLACK);
-        resetTerminal();
+        System.out.println(RESET);
     }
     public static void loginHeader(){
-        System.out.println(RED + BOLD + "  ===================================" + RESET);
-        System.out.println(WHITE + BOLD + "            ADMIN LOGIN " + RESET);
-        System.out.println(RED + BOLD + "  ===================================" + RESET);
-        System.out.println();
+
+
     }
 
-    //USERNAME
+    public static void login(){
+        System.out.println(RED + BOLD + "  ===================================" + RESET);
+        System.out.println(WHITE + BOLD + "               LOGIN  " + RESET);
+        System.out.println(RED + BOLD + "  ===================================" + RESET);
+    }
+
     public static void usernameLabel(){
         System.out.print(WHITE + "  USERNAME : " + RESET);
     }
-    //PASSWORD
+
     public static void passwordLabel(){
         System.out.print(WHITE + "  PASSWORD : " + RESET);
     }
-    //LOGIN RESULT
-    public static void loginSuccess(String name){
-        System.out.println();
-        System.out.println(GREEN + "Login Successfull" + RESET);
-        System.out.println(WHITE + "Welcome" + name + "!" + RESET);
-        System.out.println();
-    }
-    public static void loginFailed(){
-        System.out.println();
-        System.out.println(RED + "Invalid Username or Password" + RESET);
-        System.out.println();
-    }
+
 
 
 

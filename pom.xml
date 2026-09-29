@@ -13,6 +13,8 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>9.4.0</version>
         </dependency>
+
+
     </dependencies>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
